@@ -1,5 +1,5 @@
 pw <- {
-  "s0.Much.Data"
+  "pass"
 }
 #setwd("/Users/ashimdatta/Enterprise/THEZ/R/thez_production")
 getwd()
@@ -12,8 +12,8 @@ library("plyr")
 library("dplyr")
 
 drv <- dbDriver("PostgreSQL")
-con <- dbConnect(drv, dbname = "analytics",
-                 host = "10.223.192.6", port = 5432,
+con <- dbConnect(drv, dbname = "databasename",
+                 host = "server", port = 5432,
                  user = "etl", password = pw)
 
 thez_actions_stag_semantic<-dbGetQuery(con,"select a.*,b.topic as semantic_topic from public.thez_actions_stag a
