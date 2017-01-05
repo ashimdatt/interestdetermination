@@ -1,5 +1,5 @@
 import mandrill
-mandrill_client = mandrill.Mandrill('ym5n1GvWNOKLW60xfuHRFg')
+mandrill_client = mandrill.Mandrill('key')
 
 def send_email(sender_address,sender_name,recipient_address,template_name,tag_list,subject_line):
     # var_vec needs to be of this form [{'name':'CURRENT_YEAR','content':'2015'},{'name':'Name','content':'Content'}]
