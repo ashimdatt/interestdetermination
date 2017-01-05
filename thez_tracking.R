@@ -1,5 +1,5 @@
 pw <- {
-  "s0.Much.Data"
+  "pass"
 }
 ##setwd("/Users/ashimdatta/Enterprise/CMS usage dashboard")
 getwd()
@@ -13,8 +13,8 @@ library("plyr")
 library("dplyr")
 
 drv <- dbDriver("PostgreSQL")
-con <- dbConnect(drv, dbname = "analytics",
-                 host = "10.223.192.6", port = 5432,
+con <- dbConnect(drv, dbname = "databasename",
+                 host = "server", port = 5432,
                  user = "etl", password = pw)
 
 eventcube_summary_raw<-dbGetQuery(con,"select a.* from eventcube.eventcubesummary a
