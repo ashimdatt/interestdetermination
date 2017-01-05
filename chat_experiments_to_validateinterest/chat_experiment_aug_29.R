@@ -1,5 +1,5 @@
 pw <- {
-  "s0.Much.Data"
+  "pass"
 }
 #setwd("/Users/ashimdatta/Enterprise/chat experiments/Week of August 29- Sep 5")
 getwd()
@@ -18,9 +18,9 @@ id<-paste("('c41734ad-7747-402b-9aed-2f1538628f59',","'09e5d674-d88a-403a-93eb-2
 
 
 drv <- dbDriver("PostgreSQL")
-con <- dbConnect(drv, dbname = "analytics",
-                 host = "10.223.192.6", port = 5432,
-                 user = "etl", password = pw)
+con <- dbConnect(drv, dbname = "databasename",
+                 host = "server", port = 1111,
+                 user = "username", password = pw)
 
 query<-paste("select a.application_id, auth.userid,a.created,f.topic,f.itemid, a.num_checkins,a.num_bookmarks,a.speakers_bookmarked,a.speakers_viewed,a.speakers_viewed_timespent,
 a.sessions_viewed, a.sessions_timespent
@@ -219,7 +219,7 @@ cat(x)
 
 
 library(httr)
-r <- POST("http://10.208.1.238:8080/stream/ashim_chat", 
+r <- POST("server", 
           body = x)
 stop_for_status(r)
 content(r, "parsed", "application/json")
@@ -227,7 +227,7 @@ content(r, "parsed", "application/json")
 library(jsonlite)
 
 
-chat_out <- fromJSON("http://10.208.1.238:8080/stream/chat_in/0-")
+chat_out <- fromJSON("server")
 
 write.csv(chat_out,"chat_results.csv")
 
